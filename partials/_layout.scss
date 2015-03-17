@@ -1,0 +1,48 @@
+// breakpoints
+   
+$S:          320px;
+$XM:         415px;   
+$M:          768px;
+$N720:       1280px;
+$notebook:  1440px;	     
+$L:         1400px;     
+
+// media queries
+
+@mixin MQ($canvas) {
+  @if $canvas == S {
+   @media only screen and (min-width: $S) { @content; } 
+  }
+  @else if $canvas == M {
+   @media only screen and (min-width: $M) { @content; } 
+  }
+  @else if $canvas == N720 {
+   @media only screen and (min-width: N720) { @content; } 
+  }
+  @else if $canvas == L {
+   @media only screen and (min-width: $L) { @content; } 
+  }
+}
+
+@mixin max-width($canvas) {
+  @if $canvas == S {
+   @media only screen and (max-width: $S) { @content; } 
+  }
+  @else if $canvas == XM {
+   @media only screen and (max-width: $XM) { @content; } 
+  }
+  @else if $canvas == M {
+   @media only screen and (max-width: $M) { @content; } 
+  }
+  @else if $canvas == notebook {
+   @media only screen and (max-width: $notebook) { @content; } 
+  }
+  @else if $canvas == L {
+   @media only screen and (max-width: $L) { @content; } 
+  }
+}
+
+@mixin column($percentage, $float-direction:left) {
+  width: 100% * $percentage;
+  float: $float-direction;
+}
